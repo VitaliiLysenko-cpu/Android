@@ -1,0 +1,16 @@
+<application>
+  <component name="LanguageInjectionConfiguration">
+    <injection language="AIDL" injector-id="xml">
+      <display-name>&lt;none&gt;</display-name>
+      <place><![CDATA[xmlAttribute().withLocalName(string().matches("<none>"))]]></place>
+    </injection>
+    <injection language="AIDL" injector-id="xml">
+      <display-name>TextView/@text</display-name>
+      <place disabled="true"><![CDATA[xmlAttribute().withLocalName(string().equalTo("text")).withNamespace(string().equalTo("http://schemas.android.com/apk/res/android")).withParent(xmlTag().withLocalName(string().equalTo("TextView")))]]></place>
+    </injection>
+    <injection language="XML" injector-id="xml">
+      <display-name>TextView/@textColor</display-name>
+      <place><![CDATA[xmlAttribute().withLocalName(string().equalTo("textColor")).withNamespace(string().equalTo("http://schemas.android.com/apk/res/android")).withParent(xmlTag().withLocalName(string().equalTo("TextView")))]]></place>
+    </injection>
+  </component>
+</application>
