@@ -16,5 +16,9 @@
       <display-name>TextView/@textColor</display-name>
       <place><![CDATA[xmlAttribute().withLocalName(string().equalTo("textColor")).withNamespace(string().equalTo("http://schemas.android.com/apk/res/android")).withParent(xmlTag().withLocalName(string().equalTo("TextView")))]]></place>
     </injection>
+    <injection language="XML" injector-id="xml">
+      <display-name>application</display-name>
+      <place><![CDATA[xmlTag().withLocalName(string().equalTo("application"))]]></place>
+    </injection>
   </component>
 </application>
