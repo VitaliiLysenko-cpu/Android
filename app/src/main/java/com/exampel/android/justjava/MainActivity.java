@@ -3,12 +3,15 @@ package com.exampel.android.justjava;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
-
-import java.text.NumberFormat;
 
 public class MainActivity extends Activity {
     protected int quantity = 0;
+    protected int price = 5;
+    protected int order = 0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,40 +20,50 @@ public class MainActivity extends Activity {
     }
 
     public void submitOrder(View view) {
-        int price = 5;
-        String message = "Total: $ " + quantity * price + " \n Thank you" ;
+        calculatePrice();
+        String message = createOrderSummary(order) + "\nTotal: $ " + calculatePrice() + "\nThank you";
         displayMessage(message);
+
+    }
+
+    public int calculatePrice() {
+        order = quantity * price;
+        return order;
+    }
+
+
+    public String createOrderSummary(int order) {
+        String totalOrder = "Name: Kaptal Kunal" + "\nAdd whipped cream? " + whippedCream()+ "\nQuantity: " + quantity;
+        return totalOrder;
+    }
+
+    public boolean whippedCream() {
+        CheckBox whippedCream = findViewById(R.id.whipped_cream);
+        boolean hasWhippedCream = whippedCream.isChecked();
+        return hasWhippedCream;
     }
 
     public void increment(View view) {
-
         quantity++;
         display(quantity);
     }
 
     public void decrement(View view) {
-
         if (quantity <= 0) {
-            quantity = quantity;
-        }else{
+        } else {
             quantity--;
         }
         display(quantity);
     }
 
-
     private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        TextView quantityTextView = findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
 
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.prise_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-
-    private void displayMessage (String message){
-        TextView priceTextView = (TextView) findViewById(R.id.prise_text_view);
-        priceTextView.setText(message);
+    private void displayMessage(String message) {
+        TextView orderSummaryTextView = findViewById(R.id.orderSummary_text_view);
+        orderSummaryTextView.setText(message);
     }
 }
+

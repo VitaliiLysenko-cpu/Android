@@ -10,12 +10,22 @@
     android:paddingTop="16dp"
     tools:context=".MainActivity">
 
+    <CheckBox
+        android:id="@+id/whipped_cream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/whipped_cream"
+        android:layout_marginLeft="16dp"
+        android:textSize="16sp"
+        android:paddingLeft="24dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingBottom="0dp"
         android:text="@string/Quantity"
+        android:textColorLink="@color/black"
         android:textAllCaps="true"
         android:textSize="16sp" />
 
@@ -58,10 +68,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/prise" />
+        android:text="@string/orderSummary"
+        android:textAllCaps="true"/>
 
     <TextView
-        android:id="@+id/prise_text_view"
+        android:id="@+id/orderSummary_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
